@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1= title
+  hr
+  if column
+    h2 字段:
+      ul
+        each val,index in column
+          li
+            a(href=val.src)
+              h3 #{index-0+1}.#{val.name}(#{val.desc})
+  if column
+    h2 方法:
+  ul
+    each val,index in clist
+      li  
+        a(href=val.src)
+          h3 #{index-0+1}.#{val.name}(#{val.desc})
+      

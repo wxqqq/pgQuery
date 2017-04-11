@@ -7,15 +7,16 @@ var bodyParser = require('body-parser');
 
 var app = express();
 app.all('*', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    //     // 这个对with credentials无效效
-    //     // res.header("Access-Control-Allow-Origin", "http://XX.XX.com");
-    //     res.header("Access-Control-Allow-Credentials", true);
 
-    //     res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    //     res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
-    //     res.header("X-Powered-By", ' 4.2.1')
-    //     res.header("Content-Type", "application/json;charset=utf-8");
+    // 这个对with credentials无效效
+    res.header("Access-Control-Allow-Origin", "*");
+    // 如果要发送cookie orgin必须指定明确的地址
+    // res.header("Access-Control-Allow-Origin", "http://XX.XX.com");
+    // res.header("Access-Control-Allow-Credentials", true);
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
+    res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+    // res.header("X-Powered-By", ' hymapServer_0.1.1')
+    // res.header("Content-Type", "application/json;charset=utf-8");
     next();
 });
 // view engine setup

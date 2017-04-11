@@ -3,5 +3,8 @@ extends layout
 block content
   h1= title
   hr
-  ul 
-    li: a(href="/routing?start=116.87675722305062,36.67248480521945&end=116.94490678970101,36.64965384208468") 路径查询服务
+  ul
+    each val in clist
+      li
+        a(href=val.src)
+          h2 #{val.name}
